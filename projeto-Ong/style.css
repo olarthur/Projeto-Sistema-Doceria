@@ -115,19 +115,16 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 #donate h2 {
     color: #e6cf03;
     margin-bottom: 1rem;
 }
-
 
 #donate p {
     color: rgb(12, 12, 12);
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
-
 
 .donation-options {
     display: flex;
@@ -136,7 +133,6 @@ footer {
     gap: 15px;
     margin-bottom: 1.5rem;
 }
-
 
 .donation-btn {
     background-color: #e6cf03;
@@ -155,7 +151,6 @@ footer {
     background-color: #e6cf03;
 }
 
-
 #customAmount {
     width: 100px;
     padding: 10px;
@@ -163,7 +158,6 @@ footer {
     border-radius: 5px;
     text-align: center;
 }
-
 
 #donationAmount {
     margin-top: 1rem;
@@ -175,7 +169,6 @@ footer {
     text-align: center;
     color: rgb(12, 12, 12);
 }
-
 
 .donate-btn {
     display: inline-block;
@@ -193,7 +186,6 @@ footer {
 .donate-btn:hover {
     background-color: #e6cf03;
 }
-
 
 .donation-progress {
     margin-top: 2rem;
