@@ -56,3 +56,5 @@ Prof.  Daniel Ferreira de Barros Junior. - ([danielf@uni9.pro.br](mailto:danielf
   2223201428 | Raphael Bezerra Barros Da Silva
 
   2224202101 | Gabriel Moreira da Silva
+
+  2224110465 | Larissa Coelho de Souza
