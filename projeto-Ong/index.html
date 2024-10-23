@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal ONG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Animal ONG</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="#donate">Doar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Sobre Nós</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero accusamus voluptas velit! Dignissimos eum voluptatem et sint possimus aliquam quia, fugit quidem aliquid rem adipisci suscipit non officia quas praesentium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis accusamus quam nihil sunt sint iste impedit enim explicabo aliquid corporis repellat quidem autem expedita magnam doloribus, dolore reprehenderit cumque optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit ratione aspernatur neque sequi reiciendis cum architecto officia nisi sunt quo, odio omnis repudiandae saepe fugit corrupti. Velit sunt officia praesentium.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Entre em Contato</h2>
+            <form id="contactForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="formMessage"></p>
+        </section>
+
+        <section id="donate">
+            <h2>Faça uma Doação</h2>
+            <p>Escolha o valor que deseja doar para ajudar nossos animais:</p>
+            <label for="donationAmount">Valor da Doação (R$):</label>
+            <input type="number" id="donationAmount" min="5" placeholder="Ex: 50">
+            <button onclick="makeDonation()">Doar</button>
+            <p id="donationMessage"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Animal ONG.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
