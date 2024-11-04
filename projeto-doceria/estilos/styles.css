@@ -1,0 +1,180 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #FFEBE9;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #FFC8A2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #884c4c;
+}
+
+header nav a {
+    color: #884c4c;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #FF6B6B;
+}
+
+/* Banner */
+#banner {
+    background: url('../imagens/banner.webp') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #FFF;
+}
+
+.titulo {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+div#pedido {
+    text-align: center;
+    background-color: #FFC8A2;
+}
+
+#pedido .botao {
+    background-color: #884c4c;
+    color: #FFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+#pedido .botao:hover {
+    background-color: #FF6B6B;
+    transform: scale(1.05);
+}
+
+/* Seção Doces */
+#produtos {
+    text-align: center;
+    padding: 40px;
+}
+
+div.imagem {
+    background-color: rgba(51, 51, 51, 0.7);
+    color: white;
+    box-shadow: inset 6px 6px 13px rgba(0, 0, 0, 0.5);
+    background-attachment: fixed;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin: 10px;
+}
+
+div.imagem:hover {
+    transform: scale(1.02);
+}
+
+/* Imagens de Produtos */
+div#img01 { 
+    background-image: url('../imagens/Imagem1.jpg'); 
+}
+div#img02 { 
+    background-image: url('../imagens/Imagem2.jpg'); 
+}
+div#img03 { 
+    background-image: url('../imagens/Imagem3.jpg'); 
+}
+div#img04 { 
+    background-image: url('../imagens/Imagem4.jpg'); 
+}
+
+/* Botão Pedido Personalizado */
+.hero1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #FFC8A2;
+}
+
+.hero1 .cta-button {
+    background-color: #884c4c;
+    color: #FFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero1 .cta-button:hover {
+    background-color: #FF6B6B;
+}
+
+/* Seção Sobre e Contato */
+#sobre, #contato {
+    padding: 40px;
+    text-align: center;
+}
+
+#contato .social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #884c4c;
+    transition: color 0.3s ease;
+}
+
+#contato .social-icons a:hover {
+    color: #FF6B6B;
+}
+
+/* Rodapé */
+footer {
+    background-color: #FFC8A2;
+    text-align: center;
+    padding: 10px;
+    color: #884c4c;
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    
+    #hero {
+        height: 300px;
+    }
+
+    .imagem {
+        height: 200px;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.5em;
+    }
+
+    .hero1 .cta-button {
+        padding: 8px 16px;
+    }
+}
