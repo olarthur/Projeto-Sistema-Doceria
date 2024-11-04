@@ -8,7 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Animações de exibição ao rolar a página (Intersection Observer)
+// Animações de exibição ao rolar a página
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -19,10 +19,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-// Observa todos os elementos com a classe 'parallax'
+
 document.querySelectorAll(".parallax").forEach(section => observer.observe(section));
 
-// Feedback visual para botões de redes sociais
+// Resposta visual para botões de redes sociais
 document.querySelectorAll(".social-icons a").forEach(icon => {
     icon.addEventListener("mouseover", () => icon.classList.add("hover"));
     icon.addEventListener("mouseleave", () => icon.classList.remove("hover"));
@@ -48,7 +48,7 @@ document.getElementById("pedidoForm").addEventListener("submit", function(event)
     const telefone = document.getElementById("telefone").value;
     const mensagem = document.getElementById("mensagem").value;
     
-    // Exibe feedback personalizado de envio
+    // Exibe resposta personalizado de envio
     const feedback = document.getElementById("pedidoFeedback");
     feedback.textContent = `Obrigado, ${nome}! Seu pedido de ${produto} foi enviado com sucesso. Vamos entrar em contato pelo telefone ${telefone}.`;
     
@@ -60,7 +60,6 @@ document.getElementById("pedidoForm").addEventListener("submit", function(event)
 document.getElementById("pedidoForm").addEventListener("input", function() {
     localStorage.setItem("nome", document.getElementById("nome").value);
     localStorage.setItem("telefone", document.getElementById("telefone").value);
-    // Continue com outros campos...
 });
 
 // Recuperar dados do armazenamento local
