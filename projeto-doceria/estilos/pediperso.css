@@ -1,4 +1,3 @@
-/* Estilos Gerais */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +13,6 @@ body {
     flex-direction: column;
 }
 
-/* Cabeçalho */
 header {
     background-color: #FFC8A2;
     padding: 15px;
@@ -33,9 +31,8 @@ header nav a {
     text-decoration: none;
 }
 
-/* Seção de Conteúdo */
 section {
-    flex: 1; /* Expande para ocupar o espaço restante */
+    flex: 1; 
     padding: 40px;
     background-color: #FFEBE9;
     margin: 20px auto;
@@ -50,7 +47,6 @@ section {
     margin-bottom: 20px;
 }
 
-/* Formulário */
 form {
     display: flex;
     flex-direction: column;
@@ -90,7 +86,6 @@ form button {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Animação de Hover no Botão */
 form button:hover {
     background-color: #FF6B6B;
     transform: scale(1.05);
@@ -101,7 +96,6 @@ form button:hover {
     margin-top: 15px;
 }
 
-/* Rodapé */
 footer {
     background-color: #FFC8A2;
     text-align: center;
