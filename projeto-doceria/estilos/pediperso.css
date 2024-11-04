@@ -1,0 +1,113 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #FFEBE9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #FFC8A2;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #884c4c;
+}
+
+header nav a {
+    color: #884c4c;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Seção de Conteúdo */
+section {
+    flex: 1; /* Expande para ocupar o espaço restante */
+    padding: 40px;
+    background-color: #FFEBE9;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#pedido-personalizado h2 {
+    color: #884c4c;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #884c4c;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button {
+    background-color: #884c4c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animação de Hover no Botão */
+form button:hover {
+    background-color: #FF6B6B;
+    transform: scale(1.05);
+}
+
+#pedidoFeedback {
+    color: #884c4c;
+    margin-top: 15px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #FFC8A2;
+    text-align: center;
+    padding: 10px;
+    color: #884c4c;
+    width: 100%;
+    position: sticky; 
+    bottom: 0;
+}
