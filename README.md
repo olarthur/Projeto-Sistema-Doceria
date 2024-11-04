@@ -6,7 +6,7 @@ Projeto -  Projeto em desenvolvimento de sistemas.
 Teremos o desafio de construir um Projeto, um **Sistema WEB** publicado em um provedor de Cloud, **AWS** , **AZURE** , **Google Cloud** , **Vercel** , ou hospedagem tradicional e versionando no **Github**.
 
 O projeto devera atender a uma demanda real, ao grupo distinto escolhido:
- - ONG ANIMAIS.
+ - Doceria.
 
 Criar uma vídeo de apresentação do projeto, descrevendo neste suas principais funcionalidades e a maneira a qual o grupo produziu este projeto.
 O vídeo deve estar publicado no youtube, deve estar como público ou não listado. Com duração mínima de 5 minutos.
