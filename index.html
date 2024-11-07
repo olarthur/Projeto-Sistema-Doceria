@@ -38,7 +38,30 @@
         </div>
     </section>
 
-    <div id="pedido"><a href="pedido.html" class="botao">Faça seu Pedido Personalizado!</a></div>
+    <section id="pedido-personalizado">
+        <h2>Solicite seu Pedido Personalizado</h2>
+        <form id="pedidoForm">
+            <label for="produto">Selecione o Produto:</label>
+            <select id="produto" name="produto" required>
+                <option value="">Selecione...</option>
+                <option value="bolo">Bolo</option>
+                <option value="brigadeiro">Brigadeiro</option>
+                <option value="bolo-pote">Bolo de Pote</option>
+            </select>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o pedido..." required></textarea>
+
+            <button type="submit">Enviar Pedido</button>
+        </form>
+        <p id="pedidoFeedback"></p>
+    </section>
 
     <section id="sobre">
         <h2>Sobre Nós</h2>
@@ -59,5 +82,8 @@
     <footer>
         <p>&copy; 2024 Doces da Maria. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="scripts.js"></script>
+
 </body>
 </html>
