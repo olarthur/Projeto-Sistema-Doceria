@@ -34,7 +34,7 @@ header nav a:hover {
 }
 
 #banner {
-    background: url('../imagens/banner.webp') no-repeat center center/cover;
+    background: url('./imagens/banner.webp') no-repeat center center/cover;
     height: 400px;
     display: flex;
     align-items: center;
@@ -93,16 +93,16 @@ div.imagem:hover {
 }
 
 div#img01 { 
-    background-image: url('../imagens/Imagem1.jpg'); 
+    background-image: url('./imagens/Imagem1.jpg'); 
 }
 div#img02 { 
-    background-image: url('../imagens/Imagem2.jpg'); 
+    background-image: url('./imagens/Imagem2.jpg'); 
 }
 div#img03 { 
-    background-image: url('../imagens/Imagem3.jpg'); 
+    background-image: url('./imagens/Imagem3.jpg'); 
 }
 div#img04 { 
-    background-image: url('../imagens/Imagem4.jpg'); 
+    background-image: url('./imagens/Imagem4.jpg'); 
 }
 
 .hero1 {
