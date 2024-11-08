@@ -67,3 +67,28 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("nome").value = localStorage.getItem("nome") || '';
     document.getElementById("telefone").value = localStorage.getItem("telefone") || '';
 });
+
+document.getElementById("pedidoForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Coleta de dados do formulário
+    const nome = document.getElementById("nome").value;
+    const produto = document.getElementById("produto").value;
+    const telefone = document.getElementById("telefone").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    // Envio de dados via fetch para o back-end
+    fetch('/pedido', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nome, produto, telefone, mensagem })
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("pedidoFeedback").textContent = data.message;
+        document.getElementById("pedidoForm").reset();
+    })
+    .catch(error => console.error('Erro ao enviar o pedido:', error));
+});
