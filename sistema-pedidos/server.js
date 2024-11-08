@@ -17,3 +17,39 @@ app.use(express.static('public'));
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+const mysql = require('mysql2');
+
+// Configuração da conexão com o banco de dados
+const db = mysql.createConnection({
+    host: 'localhost',     // Endereço do servidor MySQL
+    user: 'root',   // Usuário do MySQL
+    password: '080441OliveiraArthur@', // Senha do MySQL
+    database: 'sistema_pedidos' // Nome do banco de dados
+});
+
+// Conectando ao MySQL
+db.connect((err) => {
+    if (err) {
+        console.error('Erro ao conectar ao banco de dados:', err);
+        return;
+    }
+    console.log('Conectado ao banco de dados MySQL.');
+});
+
+app.post('/api/pedido', (req, res) => {
+    const { nome, produto, telefone, mensagem } = req.body;
+
+    // Query para inserir dados na tabela 'pedidos'
+    const query = 'INSERT INTO pedidos (nome, produto, telefone, mensagem) VALUES (?, ?, ?, ?)';
+    const values = [nome, produto, telefone, mensagem];
+
+    db.query(query, values, (err, result) => {
+        if (err) {
+            console.error('Erro ao inserir pedido:', err);
+            res.status(500).json({ error: 'Erro ao processar o pedido' });
+            return;
+        }
+        res.status(200).json({ message: 'Pedido recebido com sucesso!' });
+    });
+});

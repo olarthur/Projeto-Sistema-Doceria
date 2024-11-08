@@ -92,3 +92,32 @@ document.getElementById("pedidoForm").addEventListener("submit", function(event)
     })
     .catch(error => console.error('Erro ao enviar o pedido:', error));
 });
+
+document.getElementById("pedidoForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const produto = document.getElementById("produto").value;
+    const telefone = document.getElementById("telefone").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    try {
+        const response = await fetch('/api/pedido', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, produto, telefone, mensagem })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert(result.message);
+            document.getElementById("pedidoForm").reset();
+        } else {
+            alert("Erro ao enviar pedido: " + result.error);
+        }
+    } catch (error) {
+        console.error("Erro:", error);
+        alert("Erro ao enviar pedido.");
+    }
+});
