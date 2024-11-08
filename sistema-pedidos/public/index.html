@@ -49,6 +49,7 @@
     <section id="pedido-personalizado">
         <h2>Solicite seu Pedido </h2>
         <form id="pedidoForm">
+            <!-- Campos do formulário -->
             <label for="produto">Selecione o Produto:</label>
             <select id="produto" name="produto" required>
                 <option value="">Selecione...</option>
@@ -58,19 +59,21 @@
                 <option value="doces-de-coco">Doces de Coco</option>
                 <option value="cocada">Cocada</option>
             </select>
-
+        
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
-
+        
             <label for="telefone">Telefone:</label>
             <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXXX-XXXX">
-
+        
             <label for="mensagem">Mensagem:</label>
             <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva o pedido..." required></textarea>
-
+        
             <button type="submit">Enviar Pedido</button>
         </form>
+        
         <p id="pedidoFeedback"></p>
+        
     </section>
 
     <!-- Seção Sobre -->
