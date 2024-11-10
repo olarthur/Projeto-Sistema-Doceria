@@ -14,7 +14,7 @@ const observer = new IntersectionObserver(entries => {
         entry.target.classList.toggle("visible", entry.isIntersecting);
     });
 });
-document.querySelectorAll(".parallax").forEach(section => observer.observe(section));
+document.querySelectorAll(".imagem").forEach(section => observer.observe(section));
 
 // Resposta visual para botões de redes sociais
 document.querySelectorAll(".social-icons a").forEach(icon => {
