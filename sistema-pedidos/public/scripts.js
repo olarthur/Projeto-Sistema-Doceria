@@ -18,8 +18,6 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 });
-
-
 document.querySelectorAll(".parallax").forEach(section => observer.observe(section));
 
 // Resposta visual para botões de redes sociais
@@ -28,8 +26,9 @@ document.querySelectorAll(".social-icons a").forEach(icon => {
     icon.addEventListener("mouseleave", () => icon.classList.remove("hover"));
 });
 
+// Validação do telefone em tempo real
 document.getElementById("telefone").addEventListener("input", function() {
-    const telPattern = /^\(\d{2}\) \d{5}-\d{4}$/; // Formato esperado
+    const telPattern = /^\(\d{2}\) \d{5}-\d{4}$/;
     const feedback = document.getElementById("telefoneFeedback");
     if (!telPattern.test(this.value)) {
         feedback.textContent = "Por favor, use o formato (XX) XXXXX-XXXX.";
@@ -38,70 +37,30 @@ document.getElementById("telefone").addEventListener("input", function() {
     }
 });
 
-// Lógica de envio para a página de pedidos personalizados
-document.getElementById("pedidoForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Previne o envio padrão do formulário
-    
-    // Coleta de dados do formulário
-    const nome = document.getElementById("nome").value;
-    const produto = document.getElementById("produto").value;
-    const telefone = document.getElementById("telefone").value;
-    const mensagem = document.getElementById("mensagem").value;
-    
-    // Exibe resposta personalizado de envio
-    const feedback = document.getElementById("pedidoFeedback");
-    feedback.textContent = `Obrigado, ${nome}! Seu pedido de ${produto} foi enviado com sucesso. Vamos entrar em contato pelo telefone ${telefone}.`;
-    
-    // Limpa o formulário após o envio
-    document.getElementById("pedidoForm").reset();
-});
-
-// Salvar dados no armazenamento local
+// Salvar dados do formulário no armazenamento local
 document.getElementById("pedidoForm").addEventListener("input", function() {
     localStorage.setItem("nome", document.getElementById("nome").value);
     localStorage.setItem("telefone", document.getElementById("telefone").value);
 });
 
-// Recuperar dados do armazenamento local
+// Recuperar dados salvos do armazenamento local ao carregar a página
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("nome").value = localStorage.getItem("nome") || '';
     document.getElementById("telefone").value = localStorage.getItem("telefone") || '';
 });
 
-document.getElementById("pedidoForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    // Coleta de dados do formulário
-    const nome = document.getElementById("nome").value;
-    const produto = document.getElementById("produto").value;
-    const telefone = document.getElementById("telefone").value;
-    const mensagem = document.getElementById("mensagem").value;
-
-    // Envio de dados via fetch para o back-end
-    fetch('/pedido', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome, produto, telefone, mensagem })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById("pedidoFeedback").textContent = data.message;
-        document.getElementById("pedidoForm").reset();
-    })
-    .catch(error => console.error('Erro ao enviar o pedido:', error));
-});
-
+// Lógica de envio do formulário com uso do fetch e async/await
 document.getElementById("pedidoForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
+    // Coleta de dados do formulário
     const nome = document.getElementById("nome").value;
     const produto = document.getElementById("produto").value;
     const telefone = document.getElementById("telefone").value;
     const mensagem = document.getElementById("mensagem").value;
 
     try {
+        // Envio dos dados para o back-end
         const response = await fetch('/api/pedido', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -110,14 +69,18 @@ document.getElementById("pedidoForm").addEventListener("submit", async function(
 
         const result = await response.json();
 
+        // Feedback ao usuário
+        const feedback = document.getElementById("pedidoFeedback");
         if (response.ok) {
-            alert(result.message);
+            feedback.textContent = result.message;
             document.getElementById("pedidoForm").reset();
+            localStorage.removeItem("nome");  // Remove dados do localStorage após envio
+            localStorage.removeItem("telefone");
         } else {
-            alert("Erro ao enviar pedido: " + result.error);
+            feedback.textContent = "Erro ao enviar pedido: " + result.error;
         }
     } catch (error) {
-        console.error("Erro:", error);
-        alert("Erro ao enviar pedido.");
+        console.error("Erro ao enviar pedido:", error);
+        alert("Erro ao enviar pedido. Tente novamente mais tarde.");
     }
 });
