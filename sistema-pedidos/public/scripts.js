@@ -80,7 +80,17 @@ document.getElementById("pedidoForm").addEventListener("submit", async function(
             feedback.textContent = "Erro ao enviar pedido: " + result.error;
         }
     } catch (error) {
-        console.error("Erro ao enviar pedido:", error);
-        alert("Erro ao enviar pedido. Tente novamente mais tarde.");
+        app.post('/api/pedido', async (req, res) => {
+            const { nome, produto, telefone, mensagem } = req.body;
+        
+            try {
+                const query = 'INSERT INTO pedidos (nome, produto, telefone, mensagem) VALUES (?, ?, ?, ?)';
+                await db.promise().query(query, [nome, produto, telefone, mensagem]);
+                res.status(200).json({ message: 'Pedido recebido com sucesso!' });
+            } catch (error) {
+                console.error('Erro ao inserir pedido:', error);
+                res.status(500).json({ error: 'Erro ao processar o pedido' });
+            }
+        });
     }
 });
