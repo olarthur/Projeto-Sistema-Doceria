@@ -43,18 +43,6 @@ Prof.  Daniel Ferreira de Barros Junior. - ([danielf@uni9.pro.br](mailto:danielf
   
   2223108726 | Arthur Oliveira dos Santos
 
-  2223103807 | Pedro Augusto Morais de Pieri
-
-  2224104538 | Henrique Gonçalves Ramos
-
-  2223202689 | Matheus Souza Carvalho
-
   2224200659 | Mayck Reis Gomes
 
-  2223201444 | Luana Moreira dos Santos Alves
-
   2223201428 | Raphael Bezerra Barros Da Silva
-
-  2224202101 | Gabriel Moreira da Silva
-
-  2224110465 | Larissa Coelho de Souza
