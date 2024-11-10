@@ -1,6 +1,6 @@
 // Suavizar a rolagem para âncoras
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function(e) {
+    anchor.addEventListener("click", function (e) {
         e.preventDefault();
         document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth"
@@ -9,13 +9,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Animações de exibição ao rolar a página
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        } else {
-            entry.target.classList.remove("visible");
-        }
+        entry.target.classList.toggle("visible", entry.isIntersecting);
     });
 });
 document.querySelectorAll(".parallax").forEach(section => observer.observe(section));
@@ -27,37 +23,39 @@ document.querySelectorAll(".social-icons a").forEach(icon => {
 });
 
 // Validação do telefone em tempo real
-document.getElementById("telefone").addEventListener("input", function() {
+const telefoneInput = document.getElementById("telefone");
+const telefoneFeedback = document.getElementById("telefoneFeedback");
+
+telefoneInput.addEventListener("input", () => {
     const telPattern = /^\(\d{2}\) \d{5}-\d{4}$/;
-    const feedback = document.getElementById("telefoneFeedback");
-    if (!telPattern.test(this.value)) {
-        feedback.textContent = "Por favor, use o formato (XX) XXXXX-XXXX.";
-    } else {
-        feedback.textContent = "";
-    }
+    telefoneFeedback.textContent = telPattern.test(telefoneInput.value)
+        ? ""
+        : "Por favor, use o formato (XX) XXXXX-XXXX.";
 });
 
 // Salvar dados do formulário no armazenamento local
-document.getElementById("pedidoForm").addEventListener("input", function() {
+const pedidoForm = document.getElementById("pedidoForm");
+pedidoForm.addEventListener("input", () => {
     localStorage.setItem("nome", document.getElementById("nome").value);
-    localStorage.setItem("telefone", document.getElementById("telefone").value);
+    localStorage.setItem("telefone", telefoneInput.value);
 });
 
 // Recuperar dados salvos do armazenamento local ao carregar a página
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("nome").value = localStorage.getItem("nome") || '';
-    document.getElementById("telefone").value = localStorage.getItem("telefone") || '';
+    telefoneInput.value = localStorage.getItem("telefone") || '';
 });
 
 // Lógica de envio do formulário com uso do fetch e async/await
-document.getElementById("pedidoForm").addEventListener("submit", async function(event) {
+pedidoForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     // Coleta de dados do formulário
     const nome = document.getElementById("nome").value;
     const produto = document.getElementById("produto").value;
-    const telefone = document.getElementById("telefone").value;
+    const telefone = telefoneInput.value;
     const mensagem = document.getElementById("mensagem").value;
+    const feedback = document.getElementById("pedidoFeedback");
 
     try {
         // Envio dos dados para o back-end
@@ -70,27 +68,16 @@ document.getElementById("pedidoForm").addEventListener("submit", async function(
         const result = await response.json();
 
         // Feedback ao usuário
-        const feedback = document.getElementById("pedidoFeedback");
         if (response.ok) {
             feedback.textContent = result.message;
-            document.getElementById("pedidoForm").reset();
-            localStorage.removeItem("nome");  // Remove dados do localStorage após envio
+            pedidoForm.reset();
+            localStorage.removeItem("nome");
             localStorage.removeItem("telefone");
         } else {
             feedback.textContent = "Erro ao enviar pedido: " + result.error;
         }
     } catch (error) {
-        app.post('/api/pedido', async (req, res) => {
-            const { nome, produto, telefone, mensagem } = req.body;
-        
-            try {
-                const query = 'INSERT INTO pedidos (nome, produto, telefone, mensagem) VALUES (?, ?, ?, ?)';
-                await db.promise().query(query, [nome, produto, telefone, mensagem]);
-                res.status(200).json({ message: 'Pedido recebido com sucesso!' });
-            } catch (error) {
-                console.error('Erro ao inserir pedido:', error);
-                res.status(500).json({ error: 'Erro ao processar o pedido' });
-            }
-        });
+        console.error("Erro ao enviar pedido:", error);
+        feedback.textContent = "Erro ao enviar pedido. Tente novamente mais tarde.";
     }
 });
