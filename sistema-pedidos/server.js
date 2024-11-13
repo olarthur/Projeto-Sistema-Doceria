@@ -1,4 +1,4 @@
-// Importando dependências
+// Importa dependências
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -22,13 +22,13 @@ const mysql = require('mysql2');
 
 // Configuração da conexão com o banco de dados
 const db = mysql.createConnection({
-    host: 'localhost',     // Endereço do servidor MySQL
-    user: 'root',   // Usuário do MySQL
-    password: '080441OliveiraArthur@', // Senha do MySQL
-    database: 'sistema_pedidos' // Nome do banco de dados
+    host: 'localhost',    
+    user: 'root',   
+    password: '080441OliveiraArthur@', 
+    database: 'sistema_pedidos' 
 });
 
-// Conectando ao MySQL
+// Conecta MySQL
 db.connect((err) => {
     if (err) {
         console.error('Erro ao conectar ao banco de dados:', err);
