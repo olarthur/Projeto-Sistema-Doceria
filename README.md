@@ -43,6 +43,4 @@ Prof.  Daniel Ferreira de Barros Junior. - ([danielf@uni9.pro.br](mailto:danielf
   
   2223108726 | Arthur Oliveira dos Santos
 
-  2224200659 | Mayck Reis Gomes
-
   2223201428 | Raphael Bezerra Barros Da Silva
